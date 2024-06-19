@@ -1,3 +1,5 @@
+package testsSelenideNetology;
+
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
@@ -9,11 +11,11 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestStartQa {
     @BeforeSuite
     public void before() {
-        Configuration.holdBrowserOpen = true;
+        open("https://netology.ru");
         Configuration.baseUrl = "https://netology.ru/";
         Configuration.browser = "edge";
         Configuration.timeout = 10000;
-        Configuration.startMaximized = true ;
+        Configuration.browserSize = "1366x768";
 
     }
 
@@ -38,6 +40,6 @@ public class TestStartQa {
 
     @AfterMethod
     public void after() {
- closeWindow();
+  closeWebDriver();
     }
 }
